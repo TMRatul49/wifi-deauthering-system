@@ -1,0 +1,75 @@
+<!Doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=0.8, minimal-ui">
+	<meta name="theme-color" content="#36393E">
+
+	<meta name="description" content="ESP8266 Deauther">
+	<title>WiFi Deauthering System</title>
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="js/site.js"></script>
+	<script src="js/attack.js"></script>
+</head>
+
+<body onload="loadLang()">
+	<nav>
+		<ul class="menu">
+			<li><a href="scan.html" data-translate="scan">Scan</a></li>
+			<li><a href="ssids.html" data-translate="ssids">SSIDs</a></li>
+			<li><a href="attack.html" data-translate="attacks">Attack</a></li>
+			<li><a href="settings.html" data-translate="settings">Settings</a></li>
+		</ul>
+	</nav>
+
+	<div id="status"></div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h1 class="header" data-translate="attacks">Attacks</h1>
+				<p class="right">
+					<button onclick="stopAll()" data-translate="stop">stop</button>
+					<button onclick="load()" data-translate="reload">reload</button>
+				</p>
+				<table>
+					<tr>
+						<th data-translate="attacks">Attacks</th>
+						<th data-translate="targets">Targets</th>
+						<th>Pkts/s</th>
+						<th data-translate="start_stop">START / STOP</th>
+					</tr>
+					<tr>
+						<td>Deauth</td>
+						<td id="deauthTargets">0</td>
+						<td id="deauthPkts">0/0</td>
+						<td><button id="deauth" onclick="start(0)" class="select" data-translate="start">START</button>
+						</td>
+					</tr>
+					<tr>
+						<td>Beacon</td>
+						<td id="beaconTargets">0</td>
+						<td id="beaconPkts">0/0</td>
+						<td><button id="beacon" onclick="start(1)" class="select" data-translate="start">START</button>
+						</td>
+					</tr>
+					<tr>
+						<td>Probe</td>
+						<td id="probeTargets">0</td>
+						<td id="probePkts">0/0</td>
+						<td><button id="probe" onclick="start(2)" class="select" data-translate="start">START</button>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">All Pkts/s:</td>
+						<td colspan="2" id="allpkts">0</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
